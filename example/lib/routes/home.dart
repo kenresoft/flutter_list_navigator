@@ -1,10 +1,10 @@
 import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_list_navigator/flutter_list_navigator.dart';
 
 import '../data/constants/constants.dart';
 import '../utils/utils.dart';
-
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -14,13 +14,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int ind = 0;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     var mainList = Constants.wordsList.multiply(times: 1, sort: true);
@@ -56,7 +49,11 @@ class _HomeState extends State<Home> {
                     alignment: Alignment.centerLeft,
                     child: Column(children: [
                       const FlutterLogo(size: 30),
-                      Text(item, style: const TextStyle(fontSize: 45, fontStyle: FontStyle.italic), textAlign: TextAlign.left),
+                      Text(
+                        item,
+                        style: const TextStyle(fontSize: 45, fontStyle: FontStyle.italic),
+                        textAlign: TextAlign.left,
+                      ),
                     ]),
                   ),
                 ),
@@ -65,13 +62,11 @@ class _HomeState extends State<Home> {
             listNavigator: ListNav(
               navigatorWidth: 1.25,
               navigatorDividerWidth: 1,
-              navigatorClick: (u) {
-                //toast('$u - $u');
-              },
-              navigatorDecoration: const BoxDecoration(color: CupertinoColors.systemGrey),
+              navigatorClick: (index) {},
+              navigatorDecoration: const BoxDecoration(color: CupertinoColors.darkBackgroundGray),
               navigatorBuilder: (BuildContext context, int index, String item) {
                 return Card(
-                  color: Colors.blue,
+                  color: Colors.white,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   child: Container(
                     height: 35,

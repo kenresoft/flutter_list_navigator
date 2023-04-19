@@ -11,29 +11,149 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+flutter_list_navigator (Jump to Item) Flutter Package which contains a navigator that can be used to jump to a particular index of a list.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Both the main ListView and the controlling/navigator ListView are fully Customizable.
+- The ListView navigates with an Animation which can be changed at will.
+- The builder functions provide callback functions that can be of help.
+- The space between the main List and the navigator list can be specified.
+- The width of the navigator can as well be specified.
+
+### Screenshot
+
+<img src=""/>
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To use this package :
+
+* add the dependency to your [pubspec.yaml](/pubspec.yaml) file.
+
+### Dependency
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_list_navigator:
+    git:
+      url: git@github.com:kenresoft/flutter_list_navigator.git
+      ref: master
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Below is how this package can be use.
+[Example Project](/example/lib/main.dart)
 
 ```dart
-const like = 'sample';
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    var mainList = Constants.wordsList.multiply(times: 1, sort: true);
+    (mainList.ids.toString()).log;
+    return CupertinoPageScaffold(
+      backgroundColor: CupertinoColors.white,
+      navigationBar: const CupertinoNavigationBar(
+        backgroundColor: CupertinoColors.activeGreen,
+        brightness: Brightness.dark,
+        middle: Text(Constants.appName),
+        border: Border(bottom: BorderSide(width: 2, color: CupertinoColors.systemGrey2)),
+      ),
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4.0),
+          child: JumpingListView(
+            list: mainList,
+            itemExtent: 97,
+            jumpAnimationDuration: const Duration(milliseconds: 700),
+            jumpAnimationCurve: Curves.easeInOut,
+            itemBuilder: (context, index, item, position) {
+              return GestureDetector(
+                onTap: () => toast("$index - $item"),
+                child: Card(
+                  margin: const EdgeInsets.all(10),
+                  color: CupertinoColors.systemFill,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    side: const BorderSide(color: CupertinoColors.systemGrey, width: 5, strokeAlign: 1),
+                  ),
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 5),
+                    alignment: Alignment.centerLeft,
+                    child: Column(children: [
+                      const FlutterLogo(size: 30),
+                      Text(
+                        item,
+                        style: const TextStyle(fontSize: 45, fontStyle: FontStyle.italic),
+                        textAlign: TextAlign.left,
+                      ),
+                    ]),
+                  ),
+                ),
+              );
+            },
+            listNavigator: ListNav(
+              navigatorWidth: 1.25,
+              navigatorDividerWidth: 1,
+              navigatorClick: (index) {},
+              navigatorDecoration: const BoxDecoration(color: CupertinoColors.darkBackgroundGray),
+              navigatorBuilder: (BuildContext context, int index, String item) {
+                return Card(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  child: Container(
+                    height: 35,
+                    alignment: Alignment.center,
+                    child: Text(
+                      item,
+                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900, color: CupertinoColors.activeOrange),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+The Ui contains just three sections:
+- The main ListView
+- The divider
+- The navigator list
+
+Only the list needs to be specified by the user, these 3 UIs are automatically handled with the right dimensions.
+
+For example, the user should pass a constant list to the list argument.
+
+```dart
+const List<String> myList = ["Hello", "Flutter", "Dart", "Package"];
+```
+this can then be passed to the [JumpingListView]
+
+```dart
+JumpingListView(
+  list: myList,
+  ...
+);
+```
+
+Feel free to contribute to this package or notify us of any issues found.
+Thank you.

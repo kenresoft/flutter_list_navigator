@@ -263,6 +263,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  flutter_list_navigator:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: "3689c80395756de5d2d32ee0bc4c3bc8a28ecbfb"
+      url: "git@github.com:kenresoft/flutter_list_navigator.git"
+    source: git
+    version: "0.0.1"
   flutter_riverpod:
     dependency: "direct main"
     description:
