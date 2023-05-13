@@ -23,7 +23,7 @@ flutter_list_navigator (Jump to Item) Flutter Package which contains a navigator
 
 ### Screenshot
 
-<img alt="flutter_list_navigator example application" height="500" src="https://github.com/kenresoft/flutter_list_navigator/blob/master/example/screenshots/screen-record.mp4" title="ScreenRecord" width="250"/></video>
+<video alt="flutter_list_navigator example application" height="500" src="https://github.com/kenresoft/flutter_list_navigator/blob/master/example/screenshots/screen-record.mp4" title="ScreenRecord" width="250"/></video>
 
 ## Getting started
 
