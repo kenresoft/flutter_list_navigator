@@ -58,11 +58,11 @@ class _JumpingListViewState extends ConsumerState<JumpingListView> {
     final position = (index) * (itemExtent);
     scrollController.animateTo(position, duration: widget.jumpAnimationDuration, curve: widget.jumpAnimationCurve);
     final formula = Formulas(context: context, listWidth: widget.listNavigator.listItemWidth, dividerWidth: widget.listNavigator.dividerWidth);
-    position.log();
+
     return Row(
       children: [
         SizedBox(
-          width: formula.w1(),
+          width: formula.w1,
           child: ListView.builder(
             controller: scrollController,
             itemCount: widget.list.length,
@@ -72,7 +72,7 @@ class _JumpingListViewState extends ConsumerState<JumpingListView> {
             },
           ),
         ),
-        SizedBox(width: formula.d()),
+        SizedBox(width: formula.d),
         ListNavigator(
           list: widget.list,
           dividerWidth: widget.listNavigator.dividerWidth,
