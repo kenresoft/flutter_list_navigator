@@ -26,7 +26,7 @@ class ListNavigator extends StatelessWidget {
     final formula = Formulas(context: context, listWidth: listItemWidth, dividerWidth: dividerWidth);
     return Container(
       decoration: navDecoration,
-      width: formula.w2(),
+      width: formula.w2,
       child: ListView.builder(
         itemCount: list.ids.length,
         itemBuilder: (BuildContext context, int index2) {

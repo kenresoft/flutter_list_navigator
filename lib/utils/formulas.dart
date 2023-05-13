@@ -11,7 +11,13 @@ class Formulas {
     required this.dividerWidth,
   });
 
-  double w1() {
+  double get w1 => _w1();
+
+  double get w2 => _w2();
+
+  double get d => _d();
+
+  double _w1() {
     double size = MediaQuery.of(context).size.width;
     double listWidth = size / this.listWidth;
     if (this.listWidth < 1 || listWidth > size || listWidth < 0) {
@@ -20,7 +26,7 @@ class Formulas {
     return listWidth;
   }
 
-  double w2() {
+  double _w2() {
     double size = MediaQuery.of(context).size.width;
     double listWidth = size / this.listWidth;
     /*double numerator = size * this.listWidth;
@@ -36,7 +42,7 @@ class Formulas {
     return w2;
   }
 
-  double d() {
+  double _d() {
     double size = MediaQuery.of(context).size.width;
     double listWidth = size / this.listWidth;
     if (dividerWidth > listWidth || dividerWidth > size || dividerWidth < 1) {
