@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_list_navigator/providers/index_provider.dart';
-import 'package:flutter_list_navigator/utils/formulas.dart';
-import 'package:flutter_list_navigator/utils/utils.dart';
+import 'package:flutter_list_navigator/src/providers/index_provider.dart';
+import 'package:flutter_list_navigator/src/utils/formulas.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'list_nav.dart';
-import 'list_navigator.dart';
+import 'widgets/list_nav.dart';
+import 'widgets/list_navigator.dart';
 
 typedef ListItemClick = Function(String listItem, int listItemIndex);
 

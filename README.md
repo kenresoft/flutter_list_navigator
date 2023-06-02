@@ -47,10 +47,12 @@ dependencies:
 ## Usage
 
 Below is how this package can be use.
-<details>
 
+<details>
 <summary>
+
 [Example Project](/example/lib/main.dart)
+
 </summary>
 
 ```dart

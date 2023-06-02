@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_list_navigator/utils/utils.dart';
+import 'package:flutter_list_navigator/src/utils/utils.dart';
 
 import '../utils/formulas.dart';
+
 
 class ListNavigator extends StatelessWidget {
   const ListNavigator({
