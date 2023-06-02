@@ -1,5 +1,5 @@
 library flutter_list_navigator;
 
-export 'jumping_list.dart';
-export 'list_navigator.dart';
-export 'list_nav.dart';
+export 'src/jumping_list.dart';
+export 'src/widgets/list_navigator.dart';
+export 'src/widgets/list_nav.dart';
