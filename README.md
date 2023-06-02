@@ -47,7 +47,11 @@ dependencies:
 ## Usage
 
 Below is how this package can be use.
+<details>
+
+<summary>
 [Example Project](/example/lib/main.dart)
+</summary>
 
 ```dart
 
@@ -132,9 +136,12 @@ class _HomeState extends State<Home> {
 }
 ```
 
+</details>
+
 ## Additional information
 
 The Ui contains just three sections:
+
 - The main ListView
 - The divider
 - The navigator list
@@ -144,14 +151,17 @@ Only the list needs to be specified by the user, these 3 UIs are automatically h
 For example, the user should pass a constant list to the list argument.
 
 ```dart
+
 const List<String> myList = ["Hello", "Flutter", "Dart", "Package"];
 ```
+
 this can then be passed to the [JumpingListView]
 
 ```dart
-JumpingListView(
+
+Widget jlv = JumpingListView(
   list: myList,
-  ...
+  /*...*/
 );
 ```
 
