@@ -1,7 +1,7 @@
 name: flutter_list_navigator
 description: Jump to Item Flutter Package which contains a navigator that can be used to jump to a particular index of a list.
 version: 0.0.1
-homepage:
+homepage: ''
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -15,7 +15,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.1
-  flutter_riverpod: ^2.3.6
+  # flutter_riverpod: ^2.3.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

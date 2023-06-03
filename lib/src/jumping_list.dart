@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_list_navigator/src/providers/index_provider.dart';
 import 'package:flutter_list_navigator/src/utils/formulas.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'widgets/list_nav.dart';
 import 'widgets/list_navigator.dart';
 
 typedef ListItemClick = Function(String listItem, int listItemIndex);
 
-class JumpingListView extends ConsumerStatefulWidget {
+class JumpingListView extends StatefulWidget {
   const JumpingListView({
     Key? key,
     required this.list,
@@ -32,30 +30,32 @@ class JumpingListView extends ConsumerStatefulWidget {
   final Widget? Function(BuildContext context, int index, String item, double position) itemBuilder;
 
   @override
-  ConsumerState<JumpingListView> createState() => _JumpingListViewState();
+  State<JumpingListView> createState() => _JumpingListViewState();
 }
 
-class _JumpingListViewState extends ConsumerState<JumpingListView> {
-  late ScrollController scrollController;
+class _JumpingListViewState extends State<JumpingListView> {
+  late ScrollController _scrollController;
+  late int _index;
 
   @override
   void initState() {
     super.initState();
-    scrollController = ScrollController();
+    _scrollController = ScrollController();
+    _index = 0;
   }
 
   @override
   void dispose() {
-    scrollController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final index = ref.watch(indexProvider.select((value) => value));
+    //final index = ref.watch(indexProvider.select((value) => value));
     final itemExtent = widget.itemExtent + 8;
-    final position = (index) * (itemExtent);
-    scrollController.animateTo(position, duration: widget.jumpAnimationDuration, curve: widget.jumpAnimationCurve);
+    final position = (_index) * (itemExtent);
+    _scrollController.animateTo(position, duration: widget.jumpAnimationDuration, curve: widget.jumpAnimationCurve);
     final formula = Formulas(context: context, listWidth: widget.listNavigator.listItemWidth, dividerWidth: widget.listNavigator.dividerWidth);
 
     return Row(
@@ -63,7 +63,7 @@ class _JumpingListViewState extends ConsumerState<JumpingListView> {
         SizedBox(
           width: formula.w1,
           child: ListView.builder(
-            controller: scrollController,
+            controller: _scrollController,
             itemCount: widget.list.length,
             itemExtent: itemExtent,
             itemBuilder: (BuildContext context, int index) {
@@ -77,7 +77,10 @@ class _JumpingListViewState extends ConsumerState<JumpingListView> {
           dividerWidth: widget.listNavigator.dividerWidth,
           listItemWidth: widget.listNavigator.listItemWidth,
           onItemClick: (key) {
-            ref.watch(indexProvider.notifier).increment(key);
+            //ref.watch(indexProvider.notifier).increment(key);
+            setState(() {
+              _index = key;
+            });
             if (widget.listNavigator.onItemClick != null) {
               widget.listNavigator.onItemClick!(key);
             }

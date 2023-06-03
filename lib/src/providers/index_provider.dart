@@ -1,4 +1,4 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+/*import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final indexProvider = StateNotifierProvider<IndexNotifier, int>((ref) {
   return IndexNotifier();
@@ -10,4 +10,4 @@ class IndexNotifier extends StateNotifier<int> {
   void increment(int index) {
     state = index;
   }
-}
+}*/
