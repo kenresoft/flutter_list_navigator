@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fontresoft/fontresoft.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jump_to_item_listview/attendance.dart';
 import 'package:jump_to_item_listview/providers/theme_provider.dart';
 import 'package:jump_to_item_listview/routes/error.dart';
 import 'package:jump_to_item_listview/routes/home.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           title: Constants.appName,
-          themeMode: condition(state, ThemeMode.light, ThemeMode.dark),
+          themeMode: condition(!state, ThemeMode.light, ThemeMode.dark),
           theme: ThemeData(
             useMaterial3: true,
             brightness: Brightness.light,
@@ -73,7 +74,7 @@ class MyApp extends StatelessWidget {
 
   final GoRouter _router = GoRouter(
     routes: <GoRoute>[
-      route(Constants.root, const Home()),
+      route(Constants.root, const Attendance()),
       route(Constants.home, const Home()),
       route(Constants.error, const ErrorPage()),
     ],
