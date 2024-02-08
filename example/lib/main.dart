@@ -1,13 +1,12 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:extensionresoft/helper.dart';
+import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fontresoft/fontresoft.dart';
 import 'package:go_router/go_router.dart';
-import 'package:jump_to_item_listview/attendance.dart';
 import 'package:jump_to_item_listview/providers/theme_provider.dart';
 import 'package:jump_to_item_listview/routes/error.dart';
 import 'package:jump_to_item_listview/routes/home.dart';
@@ -74,7 +73,6 @@ class MyApp extends StatelessWidget {
 
   final GoRouter _router = GoRouter(
     routes: <GoRoute>[
-      route(Constants.root, const Attendance()),
       route(Constants.home, const Home()),
       route(Constants.error, const ErrorPage()),
     ],
