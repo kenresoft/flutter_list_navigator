@@ -61,10 +61,10 @@ packages:
     dependency: "direct main"
     description:
       name: extensionresoft
-      sha256: bf789694e1f843a9d8409241335169cf3f17844509918f0361557cf88965b4ab
+      sha256: "71fba024c86f96f187752aabc79e6a2abbd3895d1e9f1a06974db8a326746412"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.3"
   fake_async:
     dependency: transitive
     description:
@@ -111,22 +111,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  fluttertoast:
-    dependency: "direct main"
-    description:
-      name: fluttertoast
-      sha256: dfdde255317af381bfc1c486ed968d5a43a2ded9c931e87cbecd88767d6a71c1
-      url: "https://pub.dev"
-    source: hosted
-    version: "8.2.4"
   fontresoft:
     dependency: "direct main"
     description:
       name: fontresoft
-      sha256: ab16925a08590b33b73daaaa420e0f04eefd8873bcbe75cf9ff6ce223aed5ae9
+      sha256: b909c8913e34ab9d9380cb7420cac492faaf39931aa6e01b766bb386342414a9
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.2"
+    version: "0.0.3"
   go_router:
     dependency: "direct main"
     description:
