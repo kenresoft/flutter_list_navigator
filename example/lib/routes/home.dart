@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
             jumpAnimationCurve: Curves.easeInOut,
             itemBuilder: (context, index, item, position) {
               return GestureDetector(
-                onTap: () => toast("$index - $item"),
+                onTap: () => toast(context, "$index - $item"),
                 child: Card(
                   margin: const EdgeInsets.all(10),
                   color: CupertinoColors.systemFill,
@@ -51,7 +51,7 @@ class _HomeState extends State<Home> {
                       const FlutterLogo(size: 30),
                       Text(
                         item,
-                        style: const TextStyle(fontSize: 45, fontStyle: FontStyle.italic),
+                        style: const TextStyle(fontSize: 35, fontStyle: FontStyle.italic),
                         textAlign: TextAlign.left,
                       ),
                     ]),
