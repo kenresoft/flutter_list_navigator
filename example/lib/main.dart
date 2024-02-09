@@ -1,18 +1,13 @@
 import 'dart:async';
-import 'dart:developer';
 
-import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fontresoft/fontresoft.dart';
 import 'package:go_router/go_router.dart';
-import 'package:jump_to_item_listview/providers/theme_provider.dart';
 import 'package:jump_to_item_listview/routes/error.dart';
 import 'package:jump_to_item_listview/routes/home.dart';
 
 import 'data/constants/constants.dart';
-
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,18 +20,22 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(
+    return const MaterialApp(
+      home: Home(),
+      debugShowCheckedModeBanner: false,
+    );
+    /*return Consumer(
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
         var state = ref.watch(themeProvider.select((value) => value));
         log(state.toString());
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           title: Constants.appName,
-          themeMode: condition(!state, ThemeMode.light, ThemeMode.dark),
+          themeMode: condition(state, ThemeMode.light, ThemeMode.dark),
           theme: ThemeData(
             useMaterial3: true,
             brightness: Brightness.light,
@@ -68,7 +67,7 @@ class MyApp extends StatelessWidget {
           localizationsDelegates: const [],
         );
       },
-    );
+    );*/
   }
 
   final GoRouter _router = GoRouter(
@@ -115,7 +114,6 @@ launchReplace(BuildContext context, String route, [Object? extra]) {
 }
 
 finish(BuildContext context) => GoRouter.of(context).pop();
-
 
 FutureOr appCallback(void value) {
   runApp(
