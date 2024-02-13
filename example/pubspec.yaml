@@ -24,7 +24,7 @@ dependencies:
   fontresoft: ^0.0.3
   extensionresoft: ^0.0.3
   cupertino_icons: ^1.0.6
-  go_router: ^13.1.0
+  go_router: ^13.2.0
   flutter_riverpod: ^2.4.10
   english_words: ^4.0.0
 #  fluttertoast: ^8.2.4
