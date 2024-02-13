@@ -8,7 +8,7 @@ typedef ListItemClick = Function(String listItem, int listItemIndex);
 
 class JumpingListView extends StatefulWidget {
   const JumpingListView({
-    Key? key,
+    super.key,
     required this.list,
     required this.itemExtent,
     required this.jumpAnimationDuration,
@@ -16,7 +16,7 @@ class JumpingListView extends StatefulWidget {
     required this.itemBuilder,
     required this.listNavigator,
     this.onNavigatorClick,
-  }) : super(key: key);
+  });
 
   final List<String> list;
   final double itemExtent;
